@@ -23,6 +23,11 @@ class TeamManager
 	}
 
 	// Team management
+	public function getTeams()
+	{
+		return $this->teams;
+	}
+
 	public function addTeam(Team $team)
 	{
 		$this->teams[$team->getName()] = $team;

@@ -2,15 +2,30 @@
 
 require_once '../functions.php';
 
+auth_manager();
+
+require_once 'header.php';
+
 $team_manager = TeamManager::get();
 
-$team_test = new Team('test_team');
+$teams = $team_manager->getTeams();
+print '<table class="table table-striped table-hover">';
+print '<thead><tr>';
+print '<th>Name</th>';
+print '<th>Points</th>';
+print '<th>Current Task</th>';
+print '</tr></thead>';
+print '<tbody>';
+foreach ($teams as $team)
+{
+	print '<tr>';
+	print '<td>' . $team->getName() . '</td>';
+	print '<td>' . $team->getPoints() . '</td>';
+	print '<td>' . $team->getCurrentTask() . '</td>';
+	print '</tr>';
+}
+print '</tbody>';
+print '</table>';
 
-// $team_manager->setTeamPoints('test_team', 10);
 
-// $team_manager->addTeamPoints('test_team', 10);
-
-// $team_manager->removeTeamPoints('test_team', 10);
-
-
-var_dump($team_manager);
+require_once 'footer.php';

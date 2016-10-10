@@ -2,7 +2,12 @@
 
 require_once '../functions.php';
 
-// TODO INCLUDE AUTHENTICATION
+if (!api_auth_manager())
+{
+	$result['status'] = 555;
+	$result['message'] = 'Not authorised!';
+	show_result();
+}
 
 /*
 Statuses:
