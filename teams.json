@@ -1,7 +1,7 @@
 {
     "test_team": {
         "name": "test_team",
-        "points": 0,
+        "points": 10,
         "current_task": 0
     }
 }

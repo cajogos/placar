@@ -22,6 +22,20 @@ class TeamManager
 		return self::$instance;
 	}
 
+	// Team management
+	public function addTeam(Team $team)
+	{
+		$this->teams[$team->getName()] = $team;
+		$this->save();
+	}
+
+	public function removeTeam($team_name)
+	{
+		unset($this->teams[$team_name]);
+		$this->save();
+	}
+
+	// Points management
 	public function addTeamPoints($team_name, $points = 0)
 	{
 		if (!isset($this->teams[$team_name]))
@@ -30,7 +44,7 @@ class TeamManager
 		}
 		$cur_points = $this->teams[$team_name]->getPoints();
 		$cur_points += $points;
-		$this->setTeamPoints($team_name, $cur_points);
+		return $this->setTeamPoints($team_name, $cur_points);
 	}
 
 	public function removeTeamPoints($team_name, $points = 0)
@@ -41,7 +55,7 @@ class TeamManager
 		}
 		$cur_points = $this->teams[$team_name]->getPoints();
 		$cur_points -= $points;
-		$this->setTeamPoints($team_name, $cur_points);
+		return $this->setTeamPoints($team_name, $cur_points);
 	}
 
 	public function setTeamPoints($team_name, $points = 0)
@@ -56,19 +70,6 @@ class TeamManager
 		}
 		$this->teams[$team_name]->setPoints($points);
 		return $this->save();
-	}
-
-	// Team management
-	public function addTeam(Team $team)
-	{
-		$this->teams[$team->getName()] = $team;
-		$this->save();
-	}
-
-	public function removeTeam($team_name)
-	{
-		unset($this->teams[$team_name]);
-		$this->save();
 	}
 
 	private function load()
