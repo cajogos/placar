@@ -1,3 +1,9 @@
+<?php
+
+require_once 'functions.php';
+
+?>
+<!doctype html>
 <html>
 <head>
 	<title>Placar</title>
