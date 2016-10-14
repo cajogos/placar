@@ -31,13 +31,13 @@ class TeamManager
 	public function addTeam(Team $team)
 	{
 		$this->teams[$team->getName()] = $team;
-		$this->save();
+		return $this->save();
 	}
 
 	public function removeTeam($team_name)
 	{
 		unset($this->teams[$team_name]);
-		$this->save();
+		return $this->save();
 	}
 
 	// Points management

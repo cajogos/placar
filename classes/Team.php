@@ -3,8 +3,8 @@
 class Team
 {
 	private $name;
-	private $points;
-	private $current_task;
+	private $points = 0;
+	private $current_task = 0;
 
 	public function __construct($name)
 	{

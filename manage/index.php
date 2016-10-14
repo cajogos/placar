@@ -7,8 +7,14 @@ auth_manager();
 require_once 'header.php';
 
 $team_manager = TeamManager::get();
-
 $teams = $team_manager->getTeams();
+
+?>
+
+
+
+<?php
+
 print '<table class="table table-striped table-hover">';
 print '<thead><tr>';
 print '<th>Name</th>';
@@ -27,5 +33,6 @@ foreach ($teams as $team)
 print '</tbody>';
 print '</table>';
 
+?>
 
-require_once 'footer.php';
+<?php require_once 'footer.php';

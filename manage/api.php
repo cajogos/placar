@@ -25,8 +25,8 @@ if (!isset($_GET['method']))
 	show_result();
 }
 
+// Available methods: points and team
 $method = $_GET['method'];
-
 switch ($method)
 {
 	case 'points':
@@ -42,6 +42,63 @@ switch ($method)
 		break;
 }
 
+/*
+Team API:
+- /manage/api.php?method=team&action=add&team_name=test_team
+- /manage/api.php?method=team&action=remove&team_name=test_team
+*/
+function handle_team()
+{
+	global $result, $team_manager;
+	if (!isset($_GET['action']))
+	{
+		$result['status'] = 508;
+		$result['message'] = 'Team: No action given!';
+		show_result();
+	}
+	if (!isset($_GET['team_name']))
+	{
+		$result['status'] = 509;
+		$result['message'] = 'Team: No team name!';
+		show_result();
+	}
+	$action = $_GET['action'];
+	$team_name = $_GET['team_name'];
+	switch ($action)
+	{
+		case 'add':
+			$team = new Team($team_name);
+			if ($team_manager->addTeam($team))
+			{
+				$result['status'] = 104;
+				$result['message'] = 'Team: Created new team ' . $team_name;
+				show_result();
+			}
+			break;
+		case 'remove':
+			if ($team_manager->removeTeam($team_name))
+			{
+				$result['status'] = 105;
+				$result['message'] = 'Team: Removed team ' . $team_name;
+				show_result();
+			}
+			break;
+		default:
+			$result['status'] = 510;
+			$result['message'] = 'Team: Invalid action provided!';
+			show_result();
+	}
+	$result['status'] = 511;
+	$result['message'] = 'Team: Something failed when processing your action!';
+	show_result();
+}
+
+/*
+Points API:
+- /manage/api.php?method=points&action=add&value=10&team_name=test_team
+- /manage/api.php?method=points&action=set&value=10&team_name=test_team
+- /manage/api.php?method=points&action=remove&value=10&team_name=test_team
+*/
 function handle_points()
 {
 	global $result, $team_manager;
@@ -94,17 +151,12 @@ function handle_points()
 			break;
 		default:
 			$result['status'] = 506;
-			$result['message'] = 'Points: No value given!';
+			$result['message'] = 'Points: Invalid action provided!';
 			show_result();
 	}
 	$result['status'] = 507;
 	$result['message'] = 'Points: Something failed when processing your action!';
 	show_result();
-}
-
-function handle_team()
-{
-	// TODO
 }
 
 function show_result()

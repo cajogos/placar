@@ -1,4 +1,1 @@
-$(document).ready(function ()
-{
-	console.log('works1');
-});
+$(document).ready(function () {});
