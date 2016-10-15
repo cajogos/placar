@@ -1,12 +1,12 @@
 {
-    "test_team": {
-        "name": "test_team",
-        "points": 100,
+    "teamA": {
+        "name": "teamA",
+        "points": 20,
         "current_task": 0
     },
-    "teamB": {
-        "name": "teamB",
-        "points": 90,
+    "team name": {
+        "name": "team name",
+        "points": 40,
         "current_task": 0
     }
 }
