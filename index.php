@@ -8,34 +8,6 @@
 	<script type="text/javascript" src="js/scoreboard.js"></script>
 </head>
 <body>
-	<div class="scoreboard">
-		<ul>
-			<li>
-				<span class="position">1</span>
-				<span class="name">TeamA</span>
-				<span class="points">128</span>
-			</li>
-			<li>
-				<span class="position">2</span>
-				<span class="name">TeamA</span>
-				<span class="points">128</span>
-			</li>
-			<li>
-				<span class="position">3</span>
-				<span class="name">TeamA</span>
-				<span class="points">128</span>
-			</li>
-			<li>
-				<span class="position">4</span>
-				<span class="name">TeamA</span>
-				<span class="points">128</span>
-			</li>
-			<li>
-				<span class="position">5</span>
-				<span class="name">TeamA</span>
-				<span class="points">128</span>
-			</li>
-		</ul>
-	</div>
+	<div class="scoreboard"></div>
 </body>
 </html>
