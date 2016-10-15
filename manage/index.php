@@ -11,8 +11,72 @@ $teams = $team_manager->getTeams();
 
 ?>
 
-
-
+<div class="row">
+	<div class="col-md-6">
+		<h3>Team</h3>
+		<div class="row">
+			<div class="col-md-8">
+				<input type="text" class="form-control" id="team-add-input" placeholder="Team Name" />
+			</div>
+			<div class="col-md-4">
+				<button class="btn btn-success" style="width:60%" id="team-create">Create</button>
+			</div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="col-md-8">
+				<?php
+				print '<select class="form-control" id="team-remove-select">';
+				foreach ($teams as $team)
+				{
+					print '<option value="' . $team->getName() . '">';
+					print $team->getName();
+					print '</option>';
+				}
+				print '</select>';
+				?>
+			</div>
+			<div class="col-md-4">
+				<button class="btn btn-warning" style="width:60%" id="team-remove">Remove</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<h3>Points</h3>
+		<div class="row">
+			<div class="col-xs-4">
+				<?php
+				print '<select class="form-control" id="team-selector">';
+				foreach ($teams as $team)
+				{
+					print '<option value="' . $team->getName() . '">';
+					print $team->getName();
+					print '</option>';
+				}
+				print '</select>';
+				?>
+			</div>
+			<div class="col-xs-4">
+				<select class="form-control" id="points-action-select">
+					<option value="add">Add</option>
+					<option value="set">Set</option>
+					<option value="remove">Remove</option>
+				</select>
+			</div>
+			<div class="col-xs-4">
+				<input class="form-control" type="number" id="points-amount-input" min="0" value="10" />
+			</div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="col-xs-12" style="text-align:center">
+				<button class="btn btn-primary" style="width:60%" id="points-button">Run</button>
+			</div>
+		</div>
+	</div>
+</div>
+<hr />
+<div style="display:none" class="alert alert-danger" id="alert-message"></div>
 <?php
 
 print '<table class="table table-striped table-hover">';

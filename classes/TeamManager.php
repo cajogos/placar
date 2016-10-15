@@ -30,7 +30,12 @@ class TeamManager
 
 	public function addTeam(Team $team)
 	{
-		$this->teams[$team->getName()] = $team;
+		$team_name = $team->getName();
+		if (trim($team_name) === '')
+		{
+			return false;
+		}
+		$this->teams[$team_name] = $team;
 		return $this->save();
 	}
 

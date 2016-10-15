@@ -74,6 +74,12 @@ function handle_team()
 				$result['message'] = 'Team: Created new team ' . $team_name;
 				show_result();
 			}
+			else
+			{
+				$result['status'] = 514;
+				$result['message'] = 'Team: Invalid team name ' . $team_name;
+				show_result();
+			}
 			break;
 		case 'remove':
 			if ($team_manager->removeTeam($team_name))
