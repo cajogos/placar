@@ -6,7 +6,22 @@
     },
     "team name": {
         "name": "team name",
-        "points": 40,
+        "points": 160,
+        "current_task": 0
+    },
+    "teamb": {
+        "name": "teamb",
+        "points": 25,
+        "current_task": 0
+    },
+    "ghost": {
+        "name": "ghost",
+        "points": 500,
+        "current_task": 0
+    },
+    "vampire": {
+        "name": "vampire",
+        "points": 10,
         "current_task": 0
     }
 }
