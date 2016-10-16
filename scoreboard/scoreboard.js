@@ -11,7 +11,7 @@ $(document).ready(function()
 
 function updateScoreboard()
 {
-	$.getJSON('teams.php', function(data)
+	$.getJSON('../teams.php', function(data)
 	{
 		updateScoreboardCallback(data);
 	});	
