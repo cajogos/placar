@@ -8,6 +8,7 @@ require_once 'header.php';
 
 $team_manager = TeamManager::get();
 $teams = $team_manager->getTeams();
+$task_manager = TaskManager::get();
 
 ?>
 
@@ -101,6 +102,14 @@ foreach ($teams as $team)
 print '</tbody>';
 print '</table>';
 
+// Valid keywords
+print '<hr />';
+print '<h4>Valid Keywords</h4>';
+$keywords = $task_manager->getKeywords();
+foreach ($keywords as $keyword)
+{
+	print '<span class="label label-primary" style="margin:0 5px">' . $keyword . '</span>';
+}
 ?>
 
 <?php require_once 'footer.php';

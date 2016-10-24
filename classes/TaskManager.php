@@ -18,8 +18,20 @@ class TaskManager
 		}
 		foreach ($KEYWORDS as $KEY)
 		{
-			$this->keywords[] = $KEY;
+			$this->keywords[] = strtolower($KEY);
 		}
+	}
+	public function getTasks()
+	{
+		return $this->tasks;
+	}
+	public function getLastTask()
+	{
+		return $this->last_task;
+	}
+	public function getKeywords()
+	{
+		return $this->keywords;
 	}
 	public static function get()
 	{
@@ -28,5 +40,12 @@ class TaskManager
 			self::$instance = new TaskManager();
 		}
 		return self::$instance;
+	}
+	public static function isValidKeyword($try)
+	{
+		$try = strtolower(trim($try));
+		$manager = self::get();
+		$keywords = $manager->getKeywords();
+		return in_array($try, $keywords);
 	}
 }
