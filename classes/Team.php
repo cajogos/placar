@@ -5,12 +5,10 @@ class Team
 	private $name;
 	private $points = 0;
 	private $current_task = 0;
-
 	public function __construct($name)
 	{
 		$this->name = $name;
 	}
-
 	// Name
 	public function getName()
 	{
@@ -20,7 +18,6 @@ class Team
 	{
 		$this->name = $name;
 	}
-
 	// Points
 	public function getPoints()
 	{
@@ -30,7 +27,6 @@ class Team
 	{
 		$this->points = $points;
 	}
-
 	// Current Task
 	public function getCurrentTask()
 	{
@@ -40,7 +36,6 @@ class Team
 	{
 		$this->current_task = $task;
 	}
-
 	public function toArray()
 	{
 		$array = array();

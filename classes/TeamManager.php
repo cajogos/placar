@@ -6,13 +6,11 @@ class TeamManager
 	private $file_location = null;
 	private $json_contents = null;
 	private $teams = array();
-
 	private function __construct()
 	{
 		$this->file_location = $_SERVER['DOCUMENT_ROOT'] . '/teams.json';
 		$this->load();
 	}
-
 	public static function get()
 	{
 		if (empty(self::$instance))
@@ -21,13 +19,11 @@ class TeamManager
 		}
 		return self::$instance;
 	}
-
 	// Team management
 	public function getTeams()
 	{
 		return $this->teams;
 	}
-
 	public function addTeam(Team $team)
 	{
 		$team_name = $team->getName();
@@ -38,13 +34,11 @@ class TeamManager
 		$this->teams[$team_name] = $team;
 		return $this->save();
 	}
-
 	public function removeTeam($team_name)
 	{
 		unset($this->teams[$team_name]);
 		return $this->save();
 	}
-
 	// Points management
 	public function addTeamPoints($team_name, $points = 0)
 	{
@@ -56,7 +50,6 @@ class TeamManager
 		$cur_points += $points;
 		return $this->setTeamPoints($team_name, $cur_points);
 	}
-
 	public function removeTeamPoints($team_name, $points = 0)
 	{
 		if (!isset($this->teams[$team_name]))
@@ -67,7 +60,6 @@ class TeamManager
 		$cur_points -= $points;
 		return $this->setTeamPoints($team_name, $cur_points);
 	}
-
 	public function setTeamPoints($team_name, $points = 0)
 	{
 		if (!isset($this->teams[$team_name]))
@@ -81,7 +73,6 @@ class TeamManager
 		$this->teams[$team_name]->setPoints($points);
 		return $this->save();
 	}
-
 	private function load()
 	{
 		$this->teams = array();
@@ -96,7 +87,6 @@ class TeamManager
 			$this->teams[$json['name']] = $cur_team;
 		}
 	}
-
 	private function save()
 	{
 		$data = array();
