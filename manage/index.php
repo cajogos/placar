@@ -83,7 +83,9 @@ print '<table class="table table-striped table-hover">';
 print '<thead><tr>';
 print '<th>Name</th>';
 print '<th>Points</th>';
+print '<th>Last Used Code</th>';
 print '<th>Current Task</th>';
+print '<th>Task Completed</th>';
 print '</tr></thead>';
 print '<tbody>';
 foreach ($teams as $team)
@@ -91,7 +93,9 @@ foreach ($teams as $team)
 	print '<tr>';
 	print '<td>' . $team->getName() . '</td>';
 	print '<td>' . $team->getPoints() . '</td>';
+	print '<td>' . $team->getLastUsedCode() . '</td>';
 	print '<td>' . $team->getCurrentTask() . '</td>';
+	print '<td>' . ($team->isTaskCompleted() ? 'yes' : 'no') . '</td>';
 	print '</tr>';
 }
 print '</tbody>';

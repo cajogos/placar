@@ -4,6 +4,7 @@ class TaskManager
 {
 	private static $instance = null;
 	private $tasks = array();
+	private $keywords = array();
 	private $last_task = 0;
 	private function __construct()
 	{
@@ -14,6 +15,10 @@ class TaskManager
 		{
 			$cur_task = new Task($task);
 			$this->tasks[] = $cur_task;
+		}
+		foreach ($KEYWORDS as $KEY)
+		{
+			$this->keywords[] = $KEY;
 		}
 	}
 	public static function get()

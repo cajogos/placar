@@ -1,5 +1,9 @@
 <?php
 
+$KEYWORDS = array(
+	'keyword1', 'keyword2', 'keyword3', 'keyword4', 'keyword5', 'keyword6'
+	);
+
 $TASKS = array();
 
 $TASKS[] = array(

@@ -84,6 +84,8 @@ class TeamManager
 			$cur_team = new Team($json['name']);
 			$cur_team->setPoints($json['points']);
 			$cur_team->setCurrentTask($json['current_task']);
+			$cur_team->setLastUsedCode($json['last_used_code']);
+			$cur_team->setTaskCompleted($json['task_completed']);
 			$this->teams[$json['name']] = $cur_team;
 		}
 	}
