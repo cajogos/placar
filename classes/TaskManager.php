@@ -34,6 +34,12 @@ class TaskManager
 	{
 		return $this->keywords;
 	}
+	public static function getViewContentsByNumber($task_number)
+	{
+		$instance = self::get();
+		$tasks = $instance->getTasks();
+		return $tasks[$task_number]->getViewContents();
+	}
 	public static function get()
 	{
 		if (is_null(self::$instance))
@@ -49,11 +55,15 @@ class TaskManager
 		$keywords = $manager->getKeywords();
 		return in_array($try, $keywords);
 	}
-	public static function getTeamNextTask($team_name)
+	public static function getTeamNextTask($team_name, $force_current = false)
 	{
 		$team_manager = TeamManager::get();
 		$team = TeamManager::getTeamByName($team_name);
 		$current_task = $team->getCurrentTask();
+		if ($force_current)
+		{
+			return $current_task;
+		}
 		if (!$team->isTaskCompleted())
 		{
 			$task_number = $current_task;

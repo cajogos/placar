@@ -24,6 +24,10 @@ class Task
 	{
 		return $this->view;
 	}
+	public function getViewContents()
+	{
+		return $this->view_contents;
+	}
 	public static function getFinishedView()
 	{
 		$file = $_SERVER['DOCUMENT_ROOT'] . '/tasks/views/finished.html';

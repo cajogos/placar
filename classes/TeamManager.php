@@ -25,6 +25,16 @@ class TeamManager
 		$teams = $instance->getTeams();
 		return $teams[$team_name];
 	}
+	public static function teamExists($team_name)
+	{
+		if (is_null($team_name))
+		{
+			return false;
+		}
+		$instance = self::get();
+		$teams = $instance->getTeams();
+		return (isset($teams[$team_name]));
+	}
 	// Team management
 	public function getTeams()
 	{
@@ -96,6 +106,31 @@ class TeamManager
 		}
 		$this->teams[$team_name]->setTaskCompleted($task_completed);
 		return $this->save();
+	}
+	public function addKeywordUsed($team_name, $keyword_used)
+	{
+		if (!isset($this->teams[$team_name]))
+		{
+			return false;
+		}
+		$this->teams[$team_name]->addUsedKeywords($keyword_used);
+		return $this->save();
+	}
+	public static function isUsedKeyword($team_name, $keyword)
+	{
+		$instance = self::get();
+		$teams = $instance->getTeams();
+		if (!isset($teams[$team_name]))
+		{
+			throw new Exception('Team does not exist!');
+		}
+		if (!TaskManager::isValidKeyword($keyword))
+		{
+			throw new Exception('Invalid keyword');
+		}
+		$team = $teams[$team_name];
+		$used_keywords = $team->getUsedKeywords();
+		return in_array($keyword, $used_keywords);
 	}
 	private function load()
 	{

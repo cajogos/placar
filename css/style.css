@@ -36,6 +36,17 @@ div.home-container h1 {
 	font-size: 45px;
 }
 
+/* TASK FILES */
+div.task-container {
+	box-shadow: 0 0 20px 10px lime;
+	border: 1px solid lime;
+	border-radius: 12px;
+	background: white;
+	max-width: 1024px;
+	margin: 40px auto;
+	padding: 20px;
+}
+
 /* SCOREBOARD */
 div.scoreboard {
 	font-family: 'Bungee Inline', cursive;

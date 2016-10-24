@@ -1,8 +1,8 @@
 {
     "teamA": {
         "name": "teamA",
-        "points": 20,
-        "current_task": 0,
+        "points": 110,
+        "current_task": 3,
         "used_keywords": [
             "keyword1",
             "keyword2"
@@ -12,29 +12,44 @@
     "teamname": {
         "name": "teamname",
         "points": 160,
-        "current_task": 1,
-        "used_keywords": [],
-        "task_completed": false
-    },
-    "teamb": {
-        "name": "teamb",
-        "points": 25,
-        "current_task": "FINISHED",
-        "used_keywords": [],
+        "current_task": 2,
+        "used_keywords": [
+            "keyword1"
+        ],
         "task_completed": false
     },
     "ghost": {
         "name": "ghost",
-        "points": 500,
-        "current_task": 0,
-        "used_keywords": [],
-        "task_completed": false
+        "points": 120,
+        "current_task": 5,
+        "used_keywords": [
+            "keyword1",
+            "keyword2",
+            "keyword3",
+            "keyword4",
+            "keyword5",
+            "keyword6"
+        ],
+        "task_completed": true
     },
     "vampire": {
         "name": "vampire",
         "points": 10,
-        "current_task": 0,
-        "used_keywords": [],
+        "current_task": 1,
+        "used_keywords": [
+            "keyword1"
+        ],
+        "task_completed": false
+    },
+    "nathan": {
+        "name": "nathan",
+        "points": 1060,
+        "current_task": 3,
+        "used_keywords": [
+            "keyword4",
+            "keyword3",
+            "keyword2"
+        ],
         "task_completed": false
     }
 }

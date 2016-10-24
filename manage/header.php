@@ -8,5 +8,5 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Manager <a href="logout.php" class="btn btn-danger">Log Out</a></h1>
+		<h1>Manager <a href="logout.php" class="btn btn-danger">Log Out</a> <a href="" class="btn btn-primary">Refresh</a></h1>
 		<hr />

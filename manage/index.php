@@ -10,11 +10,6 @@ $team_manager = TeamManager::get();
 $teams = $team_manager->getTeams();
 $task_manager = TaskManager::get();
 
-
-$task_num = TaskManager::getTeamNextTask('teamb');
-
-var_dump($task_num);
-
 ?>
 
 <div class="row">
