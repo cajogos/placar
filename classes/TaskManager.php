@@ -37,7 +37,7 @@ class TaskManager
 	{
 		if (is_null(self::$instance))
 		{
-			self::$instance = new TaskManager();
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}

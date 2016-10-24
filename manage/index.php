@@ -110,6 +110,25 @@ foreach ($keywords as $keyword)
 {
 	print '<span class="label label-primary" style="margin:0 5px">' . $keyword . '</span>';
 }
-?>
 
-<?php require_once 'footer.php';
+// Task Manager Stuff
+print '<hr />';
+print '<h4>Task Manager</h4>';
+$tasks = $task_manager->getTasks();
+print '<table class="table table-striped table-hover">';
+print '<thead><tr>';
+print '<th>ID</th>';
+print '<th>View</th>';
+print '</tr></thead>';
+print '<tbody>';
+foreach ($tasks as $task)
+{
+	print '<tr>';
+	print '<td>' . $task->getId() . '</td>';
+	print '<td>' . $task->getView() . '</td>';
+	print '</tr>';
+}
+print '</tbody>';
+print '</table>';
+
+require_once 'footer.php';
