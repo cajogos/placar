@@ -44,6 +44,35 @@ $(document).ready(function ()
 		apiCall += '&team_name=' + teamSelector.val();
 		runAjax(apiCall);
 	});
+
+	// Set task completed
+	var completeBtns = $('.complete-btn');
+	for (var i = 0; i < completeBtns.length; i++)
+	{
+		completeBtns.on('click', function()
+		{
+			var apiCall = apiUrl;
+			apiCall += 'method=team';
+			apiCall += '&action=complete';
+			apiCall += '&value=true';
+			apiCall += '&team_name=' + $(this).data('team');
+			runAjax(apiCall);
+		});
+	}
+	// Set task completed
+	var undoBtns = $('.undo-complete-btn');
+	for (var i = 0; i < undoBtns.length; i++)
+	{
+		undoBtns.on('click', function()
+		{
+			var apiCall = apiUrl;
+			apiCall += 'method=team';
+			apiCall += '&action=complete';
+			apiCall += '&value=false';
+			apiCall += '&team_name=' + $(this).data('team');
+			runAjax(apiCall);
+		});
+	}
 });
 
 function runAjax(ajaxUrl)

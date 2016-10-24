@@ -46,6 +46,7 @@ switch ($method)
 Team API:
 - /manage/api.php?method=team&action=add&team_name=test_team
 - /manage/api.php?method=team&action=remove&team_name=test_team
+- /manage/api.php?method=team&action=complete&team_name=test_team&value=true
 */
 function handle_team()
 {
@@ -64,6 +65,7 @@ function handle_team()
 	}
 	$action = $_GET['action'];
 	$team_name = $_GET['team_name'];
+	$value = (isset($_GET['value']) && $_GET['value'] === 'true') ? true : false;
 	switch ($action)
 	{
 		case 'add':
@@ -86,6 +88,14 @@ function handle_team()
 			{
 				$result['status'] = 105;
 				$result['message'] = 'Team: Removed team ' . $team_name;
+				show_result();
+			}
+			break;
+		case 'complete':
+			if ($team_manager->setTaskCompleted($team_name, $value))
+			{
+				$result['status'] = 106;
+				$result['message'] = 'Team: Task set completed for team ' . $team_name;
 				show_result();
 			}
 			break;

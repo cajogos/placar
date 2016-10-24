@@ -73,6 +73,15 @@ class TeamManager
 		$this->teams[$team_name]->setPoints($points);
 		return $this->save();
 	}
+	public function setTaskCompleted($team_name, $task_completed)
+	{
+		if (!isset($this->teams[$team_name]))
+		{
+			return false;
+		}
+		$this->teams[$team_name]->setTaskCompleted($task_completed);
+		return $this->save();
+	}
 	private function load()
 	{
 		$this->teams = array();
