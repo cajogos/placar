@@ -3,35 +3,38 @@
         "name": "teamA",
         "points": 20,
         "current_task": 0,
-        "last_used_code": null,
+        "used_keywords": [
+            "keyword1",
+            "keyword2"
+        ],
         "task_completed": false
     },
-    "team name": {
-        "name": "team name",
+    "teamname": {
+        "name": "teamname",
         "points": 160,
         "current_task": 1,
-        "last_used_code": "keyword1",
-        "task_completed": true
+        "used_keywords": [],
+        "task_completed": false
     },
     "teamb": {
         "name": "teamb",
         "points": 25,
-        "current_task": 0,
-        "last_used_code": null,
+        "current_task": "FINISHED",
+        "used_keywords": [],
         "task_completed": false
     },
     "ghost": {
         "name": "ghost",
         "points": 500,
         "current_task": 0,
-        "last_used_code": null,
+        "used_keywords": [],
         "task_completed": false
     },
     "vampire": {
         "name": "vampire",
         "points": 10,
         "current_task": 0,
-        "last_used_code": null,
+        "used_keywords": [],
         "task_completed": false
     }
 }

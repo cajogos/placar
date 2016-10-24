@@ -2,6 +2,7 @@
 
 class TaskManager
 {
+	const FINISHED_TASK = 'FINISHED';
 	private static $instance = null;
 	private $tasks = array();
 	private $keywords = array();
@@ -47,5 +48,37 @@ class TaskManager
 		$manager = self::get();
 		$keywords = $manager->getKeywords();
 		return in_array($try, $keywords);
+	}
+	public static function getTeamNextTask($team_name)
+	{
+		$team_manager = TeamManager::get();
+		$team = TeamManager::getTeamByName($team_name);
+		$current_task = $team->getCurrentTask();
+		if (!$team->isTaskCompleted())
+		{
+			$task_number = $current_task;
+		}
+		else
+		{
+			$task_number = self::getNext($current_task);
+		}
+		if ($team_manager->setTeamTask($team->getName(), $task_number))
+		{
+			$team_manager->setTaskCompleted($team->getName(), false);
+			return $task_number;
+		}
+		throw new Exception('Failed to get team task!');
+	}
+	public static function getNext($current)
+	{
+		$instance = self::get();
+		if ($current === $instance->getLastTask())
+		{
+			return self::FINISHED_TASK;
+		}
+		else
+		{
+			return ++$current;
+		}
 	}
 }

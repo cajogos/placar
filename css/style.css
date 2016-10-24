@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Inline');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 * {
 	box-sizing: border-box;
@@ -15,10 +16,29 @@ html {
 }
 
 body {
-	font-family: 'Bungee Inline', cursive;
+	background: transparent;
 }
 
+/* HOME */
+div.home-container {
+	box-shadow: 0 0 20px 10px lime;
+	border: 2px solid lime;
+	border-radius: 12px;
+	text-align: center;
+	margin: 50px auto;
+	background: #FFF;
+	max-width: 800px;
+	padding: 30px;
+}
+div.home-container h1 {
+	font-family: 'Permanent Marker', cursive;
+	margin-bottom: 40px;
+	font-size: 45px;
+}
+
+/* SCOREBOARD */
 div.scoreboard {
+	font-family: 'Bungee Inline', cursive;
 	box-shadow: 0 0 20px 10px lime;
 	border: 2px solid lime;
 	background: #EAEAEA;

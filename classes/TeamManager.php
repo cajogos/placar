@@ -19,6 +19,12 @@ class TeamManager
 		}
 		return self::$instance;
 	}
+	public static function getTeamByName($team_name)
+	{
+		$instance = self::get();
+		$teams = $instance->getTeams();
+		return $teams[$team_name];
+	}
 	// Team management
 	public function getTeams()
 	{
@@ -73,6 +79,15 @@ class TeamManager
 		$this->teams[$team_name]->setPoints($points);
 		return $this->save();
 	}
+	public function setTeamTask($team_name, $task_number)
+	{
+		if (!isset($this->teams[$team_name]))
+		{
+			return false;
+		}
+		$this->teams[$team_name]->setCurrentTask($task_number);
+		return $this->save();
+	}
 	public function setTaskCompleted($team_name, $task_completed)
 	{
 		if (!isset($this->teams[$team_name]))
@@ -93,7 +108,14 @@ class TeamManager
 			$cur_team = new Team($json['name']);
 			$cur_team->setPoints($json['points']);
 			$cur_team->setCurrentTask($json['current_task']);
-			$cur_team->setLastUsedCode($json['last_used_code']);
+			if (!isset($json['used_keywords']))
+			{
+				$json['used_keywords'] = array();
+			}
+			foreach ($json['used_keywords'] as $keyword)
+			{
+				$cur_team->addUsedKeywords($keyword);
+			}
 			$cur_team->setTaskCompleted($json['task_completed']);
 			$this->teams[$json['name']] = $cur_team;
 		}

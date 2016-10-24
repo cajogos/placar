@@ -5,7 +5,7 @@ class Team
 	private $name;
 	private $points = 0;
 	private $current_task = 0;
-	private $last_used_code = null;
+	private $used_keywords = array();
 	private $task_completed = false;
 	public function __construct($name)
 	{
@@ -36,16 +36,23 @@ class Team
 	}
 	public function setCurrentTask($task)
 	{
+		if (is_null($task))
+		{
+			$task = 0;
+		}
 		$this->current_task = $task;
 	}
-	// Last Used Task
-	public function getLastUsedCode()
+	// Used Keywords
+	public function getUsedKeywords()
 	{
-		return $this->last_used_code;
+		return $this->used_keywords;
 	}
-	public function setLastUsedCode($last_used_code)
+	public function addUsedKeywords($used_keyword)
 	{
-		$this->last_used_code = $last_used_code;
+		if (!in_array($used_keyword, $this->used_keywords))
+		{
+			$this->used_keywords[] = $used_keyword;
+		}
 	}
 	// Task Completed
 	public function isTaskCompleted()
@@ -62,7 +69,7 @@ class Team
 		$array['name'] = $this->name;
 		$array['points'] = $this->points;
 		$array['current_task'] = $this->current_task;
-		$array['last_used_code'] = $this->last_used_code;
+		$array['used_keywords'] = $this->used_keywords;
 		$array['task_completed'] = $this->task_completed;
 		return $array;
 	}

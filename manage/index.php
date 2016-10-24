@@ -10,6 +10,11 @@ $team_manager = TeamManager::get();
 $teams = $team_manager->getTeams();
 $task_manager = TaskManager::get();
 
+
+$task_num = TaskManager::getTeamNextTask('teamb');
+
+var_dump($task_num);
+
 ?>
 
 <div class="row">
@@ -84,7 +89,7 @@ print '<table class="table table-striped table-hover">';
 print '<thead><tr>';
 print '<th>Name</th>';
 print '<th>Points</th>';
-print '<th>Used Code</th>';
+print '<th>Used Keywords</th>';
 print '<th>Current Task</th>';
 print '</tr></thead>';
 print '<tbody>';
@@ -93,7 +98,7 @@ foreach ($teams as $team)
 	print '<tr>';
 	print '<td>' . $team->getName() . '</td>';
 	print '<td>' . $team->getPoints() . '</td>';
-	print '<td><small>' . $team->getLastUsedCode() . '</small></td>';
+	print '<td><small>' . implode($team->getUsedKeywords(), ', ') . '</small></td>';
 	print '<td>' . $team->getCurrentTask() . ' (' . ($team->isTaskCompleted() ? 'yes' : 'no') . ') ';
 	if (!$team->isTaskCompleted())
 	{
