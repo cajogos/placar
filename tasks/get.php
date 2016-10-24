@@ -1,0 +1,14 @@
+<?php
+
+// CHECK IF POST - VALIDATE INFORMATION - CHECK NEXT TASK
+
+// IF NOT POST - DISPLAY FORM
+
+if ($_POST)
+{
+	// POST
+}
+else
+{
+	// Not POST
+}
