@@ -7,8 +7,8 @@ $KEYWORDS = array(
 $TASKS = array();
 
 $TASKS[] = array(
-	'id' => 'A',
-	'view' => 'task1.html'
+	'id' => 'introducing_team_scratch',
+	'view' => '001_scratch.html'
 	);
 
 $TASKS[] = array(
