@@ -35,3 +35,8 @@ $TASKS[] = array(
 	'id' => 'python',
 	'view' => '006_python.html'
 	);
+
+$TASKS[] = array(
+	'id' => 'idea',
+	'view' => '007_idea.html'
+	);
