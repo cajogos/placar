@@ -126,16 +126,20 @@ print '<h4>Task Manager</h4>';
 $tasks = $task_manager->getTasks();
 print '<table class="table table-striped table-hover">';
 print '<thead><tr>';
+print '<th>#</th>';
 print '<th>ID</th>';
 print '<th>View</th>';
 print '</tr></thead>';
 print '<tbody>';
+$counter = 0;
 foreach ($tasks as $task)
 {
 	print '<tr>';
+	print '<td>' . $counter . '</td>';
 	print '<td>' . $task->getId() . '</td>';
 	print '<td>' . $task->getView() . '</td>';
 	print '</tr>';
+	$counter++;
 }
 print '</tbody>';
 print '</table>';
