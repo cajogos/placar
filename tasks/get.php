@@ -42,7 +42,14 @@ if ($_POST)
 	{
 		$task_to_fetch = TaskManager::getTeamNextTask($team_name);
 	}
-	if ($current_task != $task_to_fetch)
+	if ($current_task === 0)
+	{
+		if (count($team->getUsedKeywords()) === 0)
+		{
+			$team_manager->addKeywordUsed($team_name, $code);			
+		}
+	}
+	else if (($current_task != $task_to_fetch))
 	{
 		$team_manager->addKeywordUsed($team_name, $code);
 	}
