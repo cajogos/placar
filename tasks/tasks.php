@@ -1,7 +1,7 @@
 <?php
 
 $KEYWORDS = array(
-	'keyword1', 'keyword2', 'keyword3', 'keyword4', 'keyword5', 'keyword6'
+	'ogre', 'eyeballs', 'frighten', 'mausoleum', 'hobgoblin', 'terror', 'imp', 'mysterious'
 	);
 
 $TASKS = array();
